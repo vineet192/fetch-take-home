@@ -38,7 +38,7 @@ router.route("/process").post((req: Request, res: Response, next: NextFunction) 
     fileDB[id] = receipt
     writeFileSync("/opt/db.json", JSON.stringify(fileDB))
 
-    res.status(200).send({ id: id })
+    res.status(201).send({ id: id })
 })
 
 router.route("/:id/points").get((req: Request, res: Response, next: NextFunction) => {
