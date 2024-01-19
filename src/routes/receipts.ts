@@ -6,6 +6,7 @@ import Item from "../models/item.model";
 import MissingItemFieldsError from "../exceptions/MissingItemFields";
 import MissingReceiptFieldsError from "../exceptions/MissingReceiptFields";
 import MalformedDateTimeError from "../exceptions/MalformedDateTime";
+import ReceiptNotFoundError from "../exceptions/ReceiptNotFound";
 
 const router = Router();
 
@@ -59,6 +60,12 @@ router.route("/:id/points").get((req: Request, res: Response, next: NextFunction
     }
 
     let receipt: Receipt = fileDB[id]
+
+    if (receipt === undefined) {
+        let err: ReceiptNotFoundError = new ReceiptNotFoundError("Receipt not found, id may be malformed")
+        next(err)
+        return
+    }
 
     let points: number = countAlphaNumeric(receipt.retailer) +
         roundedTotalBonus(receipt.total) +

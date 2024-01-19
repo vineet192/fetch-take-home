@@ -3,6 +3,7 @@ const cors = require("cors")
 import MissingItemFieldsError from "./exceptions/MissingItemFields";
 import MissingReceiptFieldsError from "./exceptions/MissingReceiptFields";
 import MalformedDateTimeError from "./exceptions/MalformedDateTime";
+import ReceiptNotFoundError from "./exceptions/ReceiptNotFound";
 
 import { Request, Response, NextFunction } from "express";
 
@@ -43,6 +44,15 @@ app.use((err: unknown, req: Request, res: Response, next: NextFunction) => {
       instance: req.originalUrl,
       title: "Malformed Date or time",
       details: "The purchase date or purchase time might be malformed"
+    })
+    return
+  }
+
+  if (err instanceof ReceiptNotFoundError) {
+    res.status(404).send({
+      instance: req.originalUrl,
+      title: "Receipt not found",
+      details: "Receipt not found, the id may be malformed or empty"
     })
     return
   }
