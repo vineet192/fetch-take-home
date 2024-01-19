@@ -10,9 +10,11 @@ import ReceiptNotFoundError from "../exceptions/ReceiptNotFound";
 
 const router = Router();
 
+//POST /receipts/process
 router.route("/process").post((req: Request, res: Response, next: NextFunction) => {
     let receipt: Receipt = req.body as Receipt;
 
+    //validate request payload
     try {
         validateReceipt(receipt)
         validatePurchaseDateTime(receipt.purchaseDate, receipt.purchaseTime)
@@ -24,6 +26,7 @@ router.route("/process").post((req: Request, res: Response, next: NextFunction) 
     let id: string = randomUUID()
     let fileDB: any;
 
+    //Read db.json, if its empty initialize to {}
     try {
         fileDB = JSON.parse(readFileSync('/opt/db.json', { flag: "r" }).toString())
     } catch (err: unknown) {
@@ -42,6 +45,7 @@ router.route("/process").post((req: Request, res: Response, next: NextFunction) 
     res.status(201).send({ id: id })
 })
 
+//GET /receipts/:id/points
 router.route("/:id/points").get((req: Request, res: Response, next: NextFunction) => {
 
     let fileDB: any;
