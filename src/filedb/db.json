@@ -1,0 +1,57 @@
+{
+    "9640a3b6-bf5f-41bf-b586-724d338f1f2b": {
+        "retailer": "M&M Corner Market",
+        "purchaseDate": "2022-03-20",
+        "purchaseTime": "14:33",
+        "items": [
+            {
+                "shortDescription": "Gatorade",
+                "price": "2.25"
+            },
+            {
+                "shortDescription": "Gatorade",
+                "price": "2.25"
+            },
+            {
+                "shortDescription": "Gatorade",
+                "price": "2.25"
+            },
+            {
+                "shortDescription": "Gatorade",
+                "price": "2.25"
+            }
+        ],
+        "total": "55.32"
+    },
+    "4906a2fc-b6b5-4fd8-89d3-4d483b70f244": {
+        "retailer": "M&M Corner Market",
+        "purchaseDate": "2022-03-20",
+        "purchaseTime": "14:33",
+        "items": [
+            {
+                "shortDescription": "Gatorade",
+                "price": "2.25"
+            },
+            {
+                "shortDescription": "Gatorade",
+                "price": "2.25"
+            },
+            {
+                "shortDescription": "Gatorade",
+                "price": "2.25"
+            },
+            {
+                "shortDescription": "Gatorade",
+                "price": "2.25"
+            }
+        ],
+        "total": "55.32"
+    },
+    "abac49e1-3816-407d-a198-7f0c60c99838": {
+        "retailer": "M&M Corner Market",
+        "purchaseDate": "2022-03-20",
+        "purchaseTime": "14:33",
+        "items": [],
+        "total": "55.32"
+    }
+}
